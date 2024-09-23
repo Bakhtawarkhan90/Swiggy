@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swiggy
+  labels:
+    app: swg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swg
+  template:
+    metadata:
+      labels:
+        app: swg
+    spec:
+      containers:
+      - name: swg-cnt
+        image: bakhtawar375/swiggy
+        ports:
+        - containerPort: 3000
+

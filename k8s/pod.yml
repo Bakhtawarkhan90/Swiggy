@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: swiggy
+ labels:
+  app: swg
+spec:
+ containers:
+ - name: swg-cnt
+   image: bakhtawar375/swiggy
+   ports:
+    - containerPort: 3000
+
+

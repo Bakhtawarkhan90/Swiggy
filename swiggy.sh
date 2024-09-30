@@ -9,7 +9,7 @@ sudo apt-get install -y docker.io
 
 echo "*********************************************** Add the current logged-in user to the Docker group ***************************************************"
 sudo chown $USER /var/run/docker.sock
-sudo usermod -aG $USER && newgrp docker
+sudo usermod -aG docker $USER && newgrp docker
 
 echo "*********************************************** Clone the repository ***************************************************"
 git clone https://github.com/Bakhtawarkhan90/Swiggy.git

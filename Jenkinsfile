@@ -17,11 +17,6 @@ pipeline {
                 }
             }
         }
-        stage('OWASP Check'){
-            steps{
-                echo "OWASP DEPENDANCY CHECK"
-            }
-        }
 
         stage('Building Image With Docker') {
             steps {

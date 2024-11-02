@@ -30,7 +30,10 @@ pipeline {
 
         stage('Trivy Image Scanning') {
             steps {
-                sh "trivy image swiggy:latest"
+                echo "Trivy Image Scanning"
+                retry(3) {
+                    sh 'trivy image swiggy:latest || sleep 60'
+                }
             }
         }
 

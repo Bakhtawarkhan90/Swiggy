@@ -57,7 +57,7 @@ pipeline {
 
         stage('Deploy On K8s') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/Swiggy/K8s'
+                sh 'cd /var/lib/jenkins/workspace/Swiggy/ks'
                 sh 'kubectl delete -f .'
                 sh 'kubectl apply -f . '
                 sh 'kubectl port-forward svc/swiggy-service 8000:80 --address 0.0.0.0 &'

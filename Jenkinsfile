@@ -63,7 +63,8 @@ pipeline {
 
         stage('Deploy On K8s') {
             steps {
-                echo "Deploy on Minikube"
+                sh "docker stop swiggy && docker rm swiggy"
+                sh "docker run -d --name swiggy -p 3000:3000 bakhtawar375/swiggy"
             }
         }
     }

@@ -21,12 +21,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Sonarqube Quality Gates'){
-            steps{
-                echo "SONARQUBE"
-            }
-        }
         
         stage('Building Image With Docker') {
             steps {

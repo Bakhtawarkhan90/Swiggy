@@ -63,8 +63,9 @@ pipeline {
 
         stage('Deploy On K8s') {
             steps {
-                sh "docker stop swiggy && docker rm swiggy"
-                sh "docker run -d --name swiggy -p 3000:3000 bakhtawar375/swiggy"
+                sh 'kubectl delete -f . '
+                sh 'kubectl apply -f . '
+                sh 'kubectl port-forward svc/swiggy-service 8000:80 --address 0.0.0.0 &'
             }
         }
     }

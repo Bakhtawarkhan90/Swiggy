@@ -14,11 +14,17 @@ pipeline {
             }
         }
 
-        stage('Code Quality Analysis') {
+        stage('SonarqubeCode Quality Analysis') {
             steps {
                 withSonarQubeEnv("Sonar") {
                     sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=Swiggy -Dsonar.projectKey=Swiggy -X"
                 }
+            }
+        }
+
+        stage('Sonarqube Quality Gates'){
+            steps{
+                echo "SONARQUBE"
             }
         }
         
